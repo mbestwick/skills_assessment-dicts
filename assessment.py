@@ -98,6 +98,10 @@ def word_length_sorted(words):
         [(2, ['ok']), (9, ['porcupine'])]
     """
 
+    words_length = []
+
+
+
     return []
 
 

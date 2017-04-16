@@ -29,15 +29,12 @@ def count_words(phrase):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
     """
 
-    word_count = {}
-
     words = phrase.split(" ")
 
+    word_count = {word: 0 for word in words}
+
     for word in words:
-        if word in word_count:
-            word_count[word] += 1
-        else:
-            word_count[word] = 1
+        word_count[word] += 1
 
     return word_count
 
@@ -71,10 +68,7 @@ def get_melon_price(melon_name):
         "Christmas": 14.25
     }
 
-    if melon_name in melon_prices:
-        melon_price = melon_prices[melon_name]
-    else:
-        melon_price = "No price found"
+    melon_price = melon_prices.get(melon_name, "No price found")
 
     return melon_price
 
@@ -98,13 +92,10 @@ def word_length_sorted(words):
         [(2, ['ok']), (9, ['porcupine'])]
     """
 
-    words_length_dict = {}
+    words_length_dict = {len(word): [] for word in words}
 
     for word in words:
-        word_length = len(word)
-        if word_length not in words_length_dict:
-            words_length_dict[word_length] = []
-        words_length_dict[word_length].append(word)
+        words_length_dict[len(word)].append(word)
 
     for value in words_length_dict.values():
         value.sort()
